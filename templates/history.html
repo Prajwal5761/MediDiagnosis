@@ -1,0 +1,191 @@
+<!-- templates/history.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis History | Medical Diagnosis System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .history-card {
+            transition: transform 0.2s;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .history-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .table-responsive {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .empty-history {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .empty-history svg {
+            color: #dee2e6;
+            margin-bottom: 20px;
+        }
+        .card-header {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">MediDiagnosis</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('diagnosis') }}">Get Diagnosis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('history') }}">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- History Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-8">
+                    <h2>Your Diagnosis History</h2>
+                    <p class="text-muted">Review your past symptom analyses and diagnoses</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="{{ url_for('diagnosis') }}" class="btn btn-primary">Get New Diagnosis</a>
+                </div>
+            </div>
+
+            {% if diagnoses %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">Top Potential Condition</th>
+                                        <th scope="col">Probability</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for diagnosis in diagnoses %}
+                                    <tr>
+                                        <th scope="row">{{ loop.index }}</th>
+                                        <td>{{ diagnosis.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                                        <td>{{ diagnosis.description[:50] }}{% if diagnosis.description|length > 50 %}...{% endif %}</td>
+                                        <td>
+                                            {% set top_condition = namespace(name='None', probability='0%') %}
+                                            {% for condition in diagnosis.diagnosis_results|from_json %}
+                                                {% if loop.first %}
+                                                    {% set top_condition.name = condition.disease %}
+                                                    {% set top_condition.probability = condition.probability %}
+                                                {% endif %}
+                                            {% endfor %}
+                                            {{ top_condition.name }}
+                                        </td>
+                                        <td>{{ top_condition.probability }}</td>
+                                        <td>
+                                            <a href="{{ url_for('view_diagnosis', diagnosis_id=diagnosis.id) }}" class="btn btn-sm btn-outline-primary">View Details</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="empty-history">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-clipboard-x" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6.146 7.146a.5.5 0 0 1 .708 0L8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 0 1 0-.708z"/>
+                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                    </svg>
+                    <h4>No diagnosis history found</h4>
+                    <p class="text-muted mb-4">You haven't submitted any symptom descriptions yet.</p>
+                    <a href="{{ url_for('diagnosis') }}" class="btn btn-primary">Get Your First Diagnosis</a>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>MediDiagnosis</h5>
+                    <p class="small">A text-based medical diagnosis system using NLP and fuzzy logic</p>
+                    <p class="small">© 2025 MediDiagnosis. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small mb-0">DISCLAIMER: This system is for educational purposes only.</p>
+                    <p class="small">Always consult a healthcare professional for medical advice.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Custom filter for parsing JSON in Jinja templates
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix for the from_json filter which doesn't exist in Jinja by default
+            // In a real implementation, you would add this as a custom filter in Flask
+            // This is just a frontend placeholder for the template display
+            const diagnosisResults = document.querySelectorAll('[data-diagnosis-results]');
+            diagnosisResults.forEach(element => {
+                try {
+                    const results = JSON.parse(element.dataset.diagnosisResults);
+                    if (results && results.length > 0) {
+                        element.textContent = results[0].disease;
+                    } else {
+                        element.textContent = 'None';
+                    }
+                } catch (e) {
+                    element.textContent = 'Error parsing results';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

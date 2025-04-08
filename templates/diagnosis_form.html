@@ -1,0 +1,103 @@
+<!-- templates/diagnosis_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Diagnosis - Medical Diagnosis System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">MediDiagnosis</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('diagnosis') }}">Get Diagnosis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('history') }}">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Diagnosis Form -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card form-card">
+                    <div class="card-body p-4 p-md-5">
+                        <h2 class="text-center mb-4">Describe Your Symptoms</h2>
+                        <p class="text-muted text-center mb-4">Please provide a detailed description of your symptoms and health concerns in the text area below.</p>
+                        
+                        <form method="post" action="{{ url_for('diagnosis') }}">
+                            <div class="mb-4">
+                                <label for="description" class="form-label">Your Symptoms</label>
+                                <textarea class="form-control" id="description" name="description" rows="6" placeholder="Example: I've been having a bad headache for 3 days along with fever. My throat is sore and I've been coughing. I also feel tired and have some body aches..." required></textarea>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">Get Diagnosis</button>
+                            </div>
+                        </form>
+                        
+                        <div class="alert alert-warning mt-4">
+                            <h5>Important Disclaimer</h5>
+                            <p class="mb-0">This tool is meant for educational purposes only and should not replace professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider for medical concerns.</p>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5>Tips for Better Results:</h5>
+                            <ul>
+                                <li>Be specific about your symptoms</li>
+                                <li>Include when symptoms started</li>
+                                <li>Mention intensity (mild, moderate, severe)</li>
+                                <li>Describe any patterns you've noticed</li>
+                                <li>Include relevant medical history if applicable</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

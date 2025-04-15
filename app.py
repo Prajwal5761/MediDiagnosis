@@ -6,6 +6,10 @@ from datetime import datetime
 import json
 import os
 
+
+# Define dataset path
+dataset_path = os.path.join(os.path.dirname(__file__), 'data', 'disease_symptom_dataset.csv')
+
 # Import the medical diagnosis system
 from diagnosis_system import MedicalDiagnosisSystem
 
@@ -19,7 +23,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Initialize Medical Diagnosis System
-diagnosis_system = MedicalDiagnosisSystem()
+# diagnosis_system = MedicalDiagnosisSystem()
+
+# Initialize Medical Diagnosis System with dataset path
+diagnosis_system = MedicalDiagnosisSystem(dataset_path)
 
 # Database Models
 class User(db.Model):

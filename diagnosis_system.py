@@ -6,21 +6,54 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import nltk
+import os
+from dataset_parser import MedicalDatasetParser
 
 # Download necessary NLTK resources first thing at import time
-# This ensures they're available before any functions try to use them
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
 class MedicalDiagnosisSystem:
-    def __init__(self):
+    def __init__(self, dataset_path='data/disease_symptom_dataset.csv'):
         # Initialize lemmatizer and stopwords
         self.lemmatizer = WordNetLemmatizer()
         self.stop_words = set(stopwords.words('english'))
         
+        # Load disease models from dataset
+        self.load_disease_models(dataset_path)
+        
         # Define symptom dictionary - maps various expressions to standardized symptoms
-        self.symptom_dict = {
+        self.symptom_dict = self.build_symptom_dictionary()
+        
+        # Intensity modifiers with multipliers
+        self.intensity_modifiers = {
+            'high_intensity': 1.5,
+            'medium_intensity': 1.0,
+            'low_intensity': 0.5
+        }
+    
+    def load_disease_models(self, dataset_path):
+        """Load disease models from the dataset"""
+        # Check if dataset file exists
+        if not os.path.exists(dataset_path):
+            print(f"Warning: Dataset file not found at {dataset_path}")
+            # Fallback to empty model
+            self.disease_models = {}
+            return
+            
+        # Parse the dataset
+        parser = MedicalDatasetParser(dataset_path)
+        self.disease_models = parser.get_disease_models()
+        
+        # If parsing failed, initialize with empty dict
+        if not self.disease_models:
+            print("Warning: Failed to load disease models from dataset")
+            self.disease_models = {}
+    
+    def build_symptom_dictionary(self):
+        """Build a comprehensive symptom dictionary based on disease models"""
+        symptom_dict = {
             # Fever related
             'fever': 'fever', 'hot': 'fever', 'temperature': 'fever', 'burning up': 'fever',
             'high temperature': 'fever', 'feverish': 'fever',
@@ -72,53 +105,16 @@ class MedicalDiagnosisSystem:
             'slight': 'low_intensity', 'moderate': 'medium_intensity'
         }
         
-        # Define disease models with fuzzy symptom relationships
-        # Format: {symptom: importance_weight}
-        self.disease_models = {
-            'Common Cold': {
-                'fever': 0.3, 'headache': 0.3, 'sore_throat': 0.7, 
-                'cough': 0.8, 'runny_nose': 0.9, 'congestion': 0.9,
-                'sneezing': 0.8, 'fatigue': 0.4
-            },
-            'Influenza (Flu)': {
-                'fever': 0.9, 'headache': 0.7, 'sore_throat': 0.5,
-                'cough': 0.8, 'congestion': 0.5, 'muscle_pain': 0.8,
-                'fatigue': 0.9, 'chills': 0.7
-            },
-            'COVID-19': {
-                'fever': 0.7, 'cough': 0.8, 'shortness_of_breath': 0.8,
-                'fatigue': 0.7, 'muscle_pain': 0.5, 'headache': 0.5,
-                'sore_throat': 0.4, 'congestion': 0.4, 'appetite_changes': 0.3
-            },
-            'Gastroenteritis': {
-                'nausea': 0.8, 'vomiting': 0.8, 'diarrhea': 0.9,
-                'abdominal_pain': 0.7, 'fever': 0.4, 'fatigue': 0.5
-            },
-            'Migraine': {
-                'headache': 0.9, 'nausea': 0.6, 'dizziness': 0.5,
-                'vomiting': 0.4, 'sensitivity_to_light': 0.7
-            },
-            'Pneumonia': {
-                'fever': 0.8, 'cough': 0.9, 'shortness_of_breath': 0.8,
-                'chest_pain': 0.7, 'fatigue': 0.6, 'chills': 0.5
-            },
-            'Asthma': {
-                'wheezing': 0.9, 'shortness_of_breath': 0.9, 'cough': 0.7,
-                'chest_pain': 0.5, 'fatigue': 0.4
-            },
-            'Allergic Rhinitis': {
-                'sneezing': 0.9, 'runny_nose': 0.9, 'congestion': 0.8,
-                'itchy_eyes': 0.7, 'cough': 0.4
-            }
-        }
+        # Add all standardized symptoms from the disease models
+        for disease, symptoms in self.disease_models.items():
+            for symptom in symptoms:
+                # Add the symptom as its own key if not already present
+                if symptom not in symptom_dict.values():
+                    symptom_dict[symptom.lower().replace("_", " ")] = symptom
         
-        # Intensity modifiers with multipliers
-        self.intensity_modifiers = {
-            'high_intensity': 1.5,
-            'medium_intensity': 1.0,
-            'low_intensity': 0.5
-        }
+        return symptom_dict
     
+    # The rest of your class remains the same...
     def preprocess_text(self, text):
         """Preprocess the text by removing punctuation, lowercasing, and tokenizing"""
         try:

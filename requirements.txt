@@ -4,3 +4,8 @@ Flask-Login
 Flask-Migrate
 Flask-WTF
 mysqlclient
+pandas 
+numpy 
+nltk 
+werkzeug 
+click

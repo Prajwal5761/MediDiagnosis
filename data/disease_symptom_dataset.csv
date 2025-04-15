@@ -1,0 +1,546 @@
+disease,symptom,weight
+Common Cold,fever,0.3
+Common Cold,headache,0.3
+Common Cold,sore_throat,0.7
+Common Cold,cough,0.8
+Common Cold,runny_nose,0.9
+Common Cold,congestion,0.9
+Common Cold,sneezing,0.8
+Common Cold,fatigue,0.4
+Common Cold,chills,0.2
+Common Cold,body_ache,0.2
+Common Cold,mild_headache,0.3
+Common Cold,watery_eyes,0.3
+Common Cold,hoarseness,0.4
+Common Cold,post_nasal_drip,0.6
+Influenza (Flu),fever,0.9
+Influenza (Flu),headache,0.7
+Influenza (Flu),sore_throat,0.5
+Influenza (Flu),cough,0.8
+Influenza (Flu),congestion,0.5
+Influenza (Flu),muscle_pain,0.8
+Influenza (Flu),fatigue,0.9
+Influenza (Flu),chills,0.7
+Influenza (Flu),body_ache,0.8
+Influenza (Flu),weakness,0.7
+Influenza (Flu),sweating,0.6
+Influenza (Flu),loss_of_appetite,0.5
+Influenza (Flu),runny_nose,0.5
+Influenza (Flu),nausea,0.3
+COVID-19,fever,0.7
+COVID-19,cough,0.8
+COVID-19,shortness_of_breath,0.8
+COVID-19,fatigue,0.7
+COVID-19,muscle_pain,0.5
+COVID-19,headache,0.5
+COVID-19,sore_throat,0.4
+COVID-19,congestion,0.4
+COVID-19,appetite_changes,0.3
+COVID-19,loss_of_taste,0.8
+COVID-19,loss_of_smell,0.8
+COVID-19,diarrhea,0.4
+COVID-19,nausea,0.3
+COVID-19,chills,0.5
+COVID-19,body_ache,0.6
+COVID-19,dizziness,0.3
+Gastroenteritis,nausea,0.8
+Gastroenteritis,vomiting,0.8
+Gastroenteritis,diarrhea,0.9
+Gastroenteritis,abdominal_pain,0.7
+Gastroenteritis,fever,0.4
+Gastroenteritis,fatigue,0.5
+Gastroenteritis,headache,0.3
+Gastroenteritis,loss_of_appetite,0.6
+Gastroenteritis,muscle_aches,0.3
+Gastroenteritis,dehydration,0.5
+Gastroenteritis,bloating,0.4
+Gastroenteritis,cramping,0.6
+Migraine,headache,0.9
+Migraine,nausea,0.6
+Migraine,dizziness,0.5
+Migraine,vomiting,0.4
+Migraine,sensitivity_to_light,0.7
+Migraine,sensitivity_to_sound,0.6
+Migraine,visual_disturbances,0.5
+Migraine,aura,0.4
+Migraine,pulsing_pain,0.7
+Migraine,neck_stiffness,0.4
+Migraine,difficulty_concentrating,0.4
+Migraine,fatigue,0.3
+Pneumonia,fever,0.8
+Pneumonia,cough,0.9
+Pneumonia,shortness_of_breath,0.8
+Pneumonia,chest_pain,0.7
+Pneumonia,fatigue,0.6
+Pneumonia,chills,0.5
+Pneumonia,rapid_breathing,0.7
+Pneumonia,sweating,0.5
+Pneumonia,headache,0.3
+Pneumonia,loss_of_appetite,0.4
+Pneumonia,confusion,0.3
+Pneumonia,coughing_up_mucus,0.8
+Pneumonia,wheezing,0.5
+Asthma,wheezing,0.9
+Asthma,shortness_of_breath,0.9
+Asthma,cough,0.7
+Asthma,chest_pain,0.5
+Asthma,fatigue,0.4
+Asthma,trouble_sleeping,0.5
+Asthma,anxiety,0.3
+Asthma,rapid_breathing,0.7
+Asthma,difficulty_breathing,0.8
+Asthma,chest_tightness,0.8
+Asthma,coughing_at_night,0.6
+Allergic Rhinitis,sneezing,0.9
+Allergic Rhinitis,runny_nose,0.9
+Allergic Rhinitis,congestion,0.8
+Allergic Rhinitis,itchy_eyes,0.7
+Allergic Rhinitis,watery_eyes,0.7
+Allergic Rhinitis,cough,0.4
+Allergic Rhinitis,itchy_nose,0.7
+Allergic Rhinitis,itchy_throat,0.5
+Allergic Rhinitis,postnasal_drip,0.6
+Allergic Rhinitis,sinus_pressure,0.5
+Allergic Rhinitis,fatigue,0.3
+Hypertension,headache,0.6
+Hypertension,dizziness,0.5
+Hypertension,chest_pain,0.4
+Hypertension,shortness_of_breath,0.4
+Hypertension,nosebleed,0.3
+Hypertension,blurred_vision,0.4
+Hypertension,pounding_in_chest,0.5
+Hypertension,irregular_heartbeat,0.4
+Hypertension,blood_in_urine,0.3
+Hypertension,fatigue,0.3
+Hypertension,difficulty_sleeping,0.2
+Hypertension,flushing,0.2
+Diabetes Type 2,increased_thirst,0.8
+Diabetes Type 2,frequent_urination,0.8
+Diabetes Type 2,unexplained_weight_loss,0.7
+Diabetes Type 2,fatigue,0.6
+Diabetes Type 2,blurred_vision,0.5
+Diabetes Type 2,slow_healing,0.5
+Diabetes Type 2,frequent_infections,0.5
+Diabetes Type 2,numbness_in_extremities,0.4
+Diabetes Type 2,dark_patches_on_skin,0.3
+Diabetes Type 2,increased_hunger,0.7
+Diabetes Type 2,irritability,0.3
+Diabetes Type 2,dry_mouth,0.4
+Diabetes Type 1,increased_thirst,0.9
+Diabetes Type 1,frequent_urination,0.9
+Diabetes Type 1,extreme_hunger,0.8
+Diabetes Type 1,unexplained_weight_loss,0.8
+Diabetes Type 1,fatigue,0.7
+Diabetes Type 1,irritability,0.5
+Diabetes Type 1,blurred_vision,0.5
+Diabetes Type 1,fruity_breath_odor,0.6
+Diabetes Type 1,nausea,0.4
+Diabetes Type 1,vomiting,0.4
+Diabetes Type 1,dry_skin,0.3
+Diabetes Type 1,yeast_infections,0.3
+Anemia,fatigue,0.9
+Anemia,weakness,0.8
+Anemia,pale_skin,0.7
+Anemia,shortness_of_breath,0.6
+Anemia,dizziness,0.6
+Anemia,chest_pain,0.4
+Anemia,cold_hands_and_feet,0.5
+Anemia,headache,0.4
+Anemia,irregular_heartbeat,0.4
+Anemia,brittle_nails,0.3
+Anemia,poor_appetite,0.3
+Anemia,lightheadedness,0.5
+Hypothyroidism,fatigue,0.9
+Hypothyroidism,increased_sensitivity_to_cold,0.8
+Hypothyroidism,constipation,0.7
+Hypothyroidism,dry_skin,0.7
+Hypothyroidism,weight_gain,0.7
+Hypothyroidism,puffy_face,0.6
+Hypothyroidism,hoarseness,0.5
+Hypothyroidism,muscle_weakness,0.6
+Hypothyroidism,elevated_cholesterol,0.5
+Hypothyroidism,muscle_aches,0.6
+Hypothyroidism,pain_in_joints,0.5
+Hypothyroidism,hair_thinning,0.4
+Hypothyroidism,depression,0.4
+Hypothyroidism,impaired_memory,0.4
+Hyperthyroidism,weight_loss,0.8
+Hyperthyroidism,rapid_heartbeat,0.8
+Hyperthyroidism,increased_appetite,0.7
+Hyperthyroidism,nervousness,0.7
+Hyperthyroidism,tremor,0.7
+Hyperthyroidism,excessive_sweating,0.6
+Hyperthyroidism,heat_intolerance,0.6
+Hyperthyroidism,fatigue,0.5
+Hyperthyroidism,muscle_weakness,0.5
+Hyperthyroidism,sleep_problems,0.5
+Hyperthyroidism,brittle_hair,0.4
+Hyperthyroidism,more_frequent_bowel_movements,0.5
+Hyperthyroidism,goiter,0.6
+Depression,persistent_sadness,0.9
+Depression,loss_of_interest,0.8
+Depression,fatigue,0.7
+Depression,sleep_problems,0.7
+Depression,appetite_changes,0.6
+Depression,difficulty_concentrating,0.6
+Depression,feelings_of_worthlessness,0.8
+Depression,thoughts_of_death,0.7
+Depression,irritability,0.5
+Depression,physical_aches_and_pains,0.4
+Depression,social_withdrawal,0.6
+Depression,reduced_productivity,0.5
+Depression,indecisiveness,0.5
+Depression,moving_or_speaking_slowly,0.4
+Anxiety Disorders,excessive_worry,0.9
+Anxiety Disorders,restlessness,0.8
+Anxiety Disorders,irritability,0.7
+Anxiety Disorders,sleep_problems,0.7
+Anxiety Disorders,fatigue,0.6
+Anxiety Disorders,muscle_tension,0.6
+Anxiety Disorders,difficulty_concentrating,0.6
+Anxiety Disorders,feeling_on_edge,0.7
+Anxiety Disorders,racing_thoughts,0.7
+Anxiety Disorders,avoidance_behavior,0.6
+Anxiety Disorders,digestive_problems,0.4
+Anxiety Disorders,rapid_breathing,0.5
+Anxiety Disorders,increased_heart_rate,0.6
+Bronchitis,cough,0.9
+Bronchitis,mucus_production,0.8
+Bronchitis,shortness_of_breath,0.7
+Bronchitis,wheezing,0.6
+Bronchitis,chest_discomfort,0.7
+Bronchitis,fatigue,0.5
+Bronchitis,slight_fever,0.4
+Bronchitis,chills,0.3
+Bronchitis,sore_throat,0.4
+Bronchitis,body_aches,0.3
+Bronchitis,headache,0.3
+Bronchitis,nasal_congestion,0.4
+Sinusitis,facial_pain,0.8
+Sinusitis,nasal_congestion,0.8
+Sinusitis,headache,0.7
+Sinusitis,thick_nasal_discharge,0.7
+Sinusitis,reduced_sense_of_smell,0.6
+Sinusitis,fatigue,0.5
+Sinusitis,sore_throat,0.4
+Sinusitis,cough,0.4
+Sinusitis,bad_breath,0.4
+Sinusitis,fever,0.3
+Sinusitis,tooth_pain,0.4
+Sinusitis,ear_pressure,0.5
+Arthritis,joint_pain,0.9
+Arthritis,joint_stiffness,0.8
+Arthritis,joint_swelling,0.7
+Arthritis,reduced_range_of_motion,0.7
+Arthritis,redness_around_joints,0.6
+Arthritis,fatigue,0.5
+Arthritis,fever,0.3
+Arthritis,weight_loss,0.3
+Arthritis,anemia,0.3
+Arthritis,joint_deformity,0.5
+Arthritis,morning_stiffness,0.7
+Arthritis,symmetrical_joint_involvement,0.6
+Osteoporosis,back_pain,0.7
+Osteoporosis,loss_of_height,0.7
+Osteoporosis,stooped_posture,0.6
+Osteoporosis,bone_fracture,0.8
+Osteoporosis,neck_pain,0.5
+Osteoporosis,receding_gums,0.3
+Osteoporosis,weakened_grip_strength,0.4
+Osteoporosis,brittle_fingernails,0.3
+Osteoporosis,loss_of_fitness,0.3
+Osteoporosis,low_back_pain,0.6
+Gastroesophageal Reflux Disease,heartburn,0.9
+Gastroesophageal Reflux Disease,regurgitation,0.8
+Gastroesophageal Reflux Disease,chest_pain,0.6
+Gastroesophageal Reflux Disease,difficult_swallowing,0.5
+Gastroesophageal Reflux Disease,dry_cough,0.5
+Gastroesophageal Reflux Disease,sore_throat,0.4
+Gastroesophageal Reflux Disease,hoarseness,0.5
+Gastroesophageal Reflux Disease,lump_in_throat,0.5
+Gastroesophageal Reflux Disease,bad_breath,0.4
+Gastroesophageal Reflux Disease,nausea,0.4
+Gastroesophageal Reflux Disease,hiccups,0.3
+Irritable Bowel Syndrome,abdominal_pain,0.9
+Irritable Bowel Syndrome,bloating,0.8
+Irritable Bowel Syndrome,gas,0.7
+Irritable Bowel Syndrome,diarrhea,0.8
+Irritable Bowel Syndrome,constipation,0.8
+Irritable Bowel Syndrome,alternating_constipation_and_diarrhea,0.7
+Irritable Bowel Syndrome,mucus_in_stool,0.6
+Irritable Bowel Syndrome,urgent_need_to_move_bowels,0.7
+Irritable Bowel Syndrome,feeling_of_incomplete_evacuation,0.6
+Irritable Bowel Syndrome,fatigue,0.4
+Irritable Bowel Syndrome,loss_of_appetite,0.3
+Urinary Tract Infection,burning_urination,0.9
+Urinary Tract Infection,frequent_urination,0.8
+Urinary Tract Infection,urgency_to_urinate,0.8
+Urinary Tract Infection,cloudy_urine,0.7
+Urinary Tract Infection,strong_smelling_urine,0.7
+Urinary Tract Infection,pelvic_pain,0.6
+Urinary Tract Infection,blood_in_urine,0.6
+Urinary Tract Infection,fatigue,0.4
+Urinary Tract Infection,fever,0.4
+Urinary Tract Infection,pressure_in_lower_abdomen,0.6
+Kidney Stones,severe_pain_in_back,0.9
+Kidney Stones,pain_in_lower_abdomen,0.8
+Kidney Stones,painful_urination,0.7
+Kidney Stones,cloudy_urine,0.7
+Kidney Stones,pink_red_or_brown_urine,0.7
+Kidney Stones,nausea,0.6
+Kidney Stones,vomiting,0.6
+Kidney Stones,persistent_need_to_urinate,0.6
+Kidney Stones,fever_and_chills,0.5
+Kidney Stones,urinating_small_amounts,0.7
+Kidney Stones,foul_smelling_urine,0.5
+Appendicitis,pain_around_navel,0.8
+Appendicitis,pain_in_lower_right_abdomen,0.9
+Appendicitis,nausea,0.7
+Appendicitis,vomiting,0.7
+Appendicitis,loss_of_appetite,0.6
+Appendicitis,fever,0.6
+Appendicitis,abdominal_swelling,0.5
+Appendicitis,inability_to_pass_gas,0.5
+Appendicitis,constipation,0.4
+Appendicitis,diarrhea,0.4
+Mononucleosis,extreme_fatigue,0.9
+Mononucleosis,sore_throat,0.8
+Mononucleosis,fever,0.7
+Mononucleosis,swollen_lymph_nodes,0.8
+Mononucleosis,swollen_tonsils,0.7
+Mononucleosis,headache,0.6
+Mononucleosis,skin_rash,0.4
+Mononucleosis,enlarged_spleen,0.7
+Mononucleosis,swollen_liver,0.5
+Mononucleosis,muscle_aches,0.5
+Mononucleosis,night_sweats,0.4
+Strep Throat,sore_throat,0.9
+Strep Throat,painful_swallowing,0.8
+Strep Throat,red_and_swollen_tonsils,0.8
+Strep Throat,white_patches_in_throat,0.7
+Strep Throat,fever,0.7
+Strep Throat,headache,0.5
+Strep Throat,skin_rash,0.4
+Strep Throat,swollen_lymph_nodes,0.6
+Strep Throat,nausea,0.4
+Strep Throat,vomiting,0.4
+Strep Throat,body_aches,0.5
+Conjunctivitis,red_eyes,0.9
+Conjunctivitis,itchy_eyes,0.7
+Conjunctivitis,gritty_feeling_in_eyes,0.8
+Conjunctivitis,discharge_from_eyes,0.8
+Conjunctivitis,tearing,0.7
+Conjunctivitis,burning_eyes,0.7
+Conjunctivitis,sensitivity_to_light,0.6
+Conjunctivitis,swollen_eyelids,0.6
+Conjunctivitis,blurred_vision,0.5
+Conjunctivitis,contact_lens_discomfort,0.5
+Celiac Disease,diarrhea,0.8
+Celiac Disease,bloating,0.7
+Celiac Disease,abdominal_pain,0.7
+Celiac Disease,fatigue,0.6
+Celiac Disease,weight_loss,0.6
+Celiac Disease,anemia,0.5
+Celiac Disease,itchy_skin_rash,0.5
+Celiac Disease,headaches,0.4
+Celiac Disease,joint_pain,0.4
+Celiac Disease,neurological_symptoms,0.3
+Celiac Disease,mouth_ulcers,0.4
+Celiac Disease,bone_loss,0.3
+Parkinson's Disease,tremor,0.9
+Parkinson's Disease,slowed_movement,0.8
+Parkinson's Disease,rigid_muscles,0.8
+Parkinson's Disease,impaired_posture,0.7
+Parkinson's Disease,balance_problems,0.7
+Parkinson's Disease,loss_of_automatic_movements,0.6
+Parkinson's Disease,speech_changes,0.6
+Parkinson's Disease,writing_changes,0.5
+Parkinson's Disease,depression,0.4
+Parkinson's Disease,sleep_disorders,0.5
+Parkinson's Disease,cognitive_changes,0.4
+Parkinson's Disease,swallowing_difficulty,0.4
+Multiple Sclerosis,fatigue,0.8
+Multiple Sclerosis,vision_problems,0.7
+Multiple Sclerosis,numbness_or_weakness,0.8
+Multiple Sclerosis,electric_shock_sensations,0.7
+Multiple Sclerosis,tremor,0.6
+Multiple Sclerosis,lack_of_coordination,0.7
+Multiple Sclerosis,slurred_speech,0.5
+Multiple Sclerosis,dizziness,0.5
+Multiple Sclerosis,sexual_problems,0.4
+Multiple Sclerosis,cognitive_problems,0.5
+Multiple Sclerosis,bowel_and_bladder_problems,0.6
+Alzheimer's Disease,memory_loss,0.9
+Alzheimer's Disease,difficulty_with_problem_solving,0.8
+Alzheimer's Disease,difficulty_completing_tasks,0.8
+Alzheimer's Disease,confusion_with_time_or_place,0.8
+Alzheimer's Disease,trouble_understanding_visuals,0.7
+Alzheimer's Disease,word_problems,0.7
+Alzheimer's Disease,misplacing_things,0.7
+Alzheimer's Disease,decreased_judgment,0.6
+Alzheimer's Disease,withdrawal_from_activities,0.6
+Alzheimer's Disease,mood_changes,0.5
+Alzheimer's Disease,personality_changes,0.5
+Alzheimer's Disease,increased_anxiety,0.4
+Epilepsy,seizures,0.9
+Epilepsy,temporary_confusion,0.7
+Epilepsy,staring_spells,0.7
+Epilepsy,uncontrollable_jerking_movements,0.8
+Epilepsy,loss_of_consciousness,0.8
+Epilepsy,fear_anxiety_deja_vu,0.6
+Epilepsy,cognitive_symptoms,0.5
+Epilepsy,emotional_symptoms,0.5
+Epilepsy,headache,0.4
+Epilepsy,fatigue,0.4
+Epilepsy,memory_loss,0.5
+Obsessive-Compulsive Disorder,unwanted_thoughts,0.9
+Obsessive-Compulsive Disorder,repetitive_behaviors,0.9
+Obsessive-Compulsive Disorder,fear_of_contamination,0.7
+Obsessive-Compulsive Disorder,aggressive_thoughts,0.7
+Obsessive-Compulsive Disorder,orderliness,0.8
+Obsessive-Compulsive Disorder,distress_when_objects_not_orderly,0.8
+Obsessive-Compulsive Disorder,excessive_cleaning,0.7
+Obsessive-Compulsive Disorder,checking_behaviors,0.8
+Obsessive-Compulsive Disorder,anxiety,0.7
+Obsessive-Compulsive Disorder,difficulty_tolerating_uncertainty,0.7
+Obsessive-Compulsive Disorder,excessive_worry,0.6
+Bipolar Disorder,mood_swings,0.9
+Bipolar Disorder,elevated_mood,0.9
+Bipolar Disorder,increased_energy,0.8
+Bipolar Disorder,decreased_need_for_sleep,0.8
+Bipolar Disorder,racing_thoughts,0.7
+Bipolar Disorder,impulsivity,0.7
+Bipolar Disorder,depressive_episodes,0.8
+Bipolar Disorder,loss_of_interest,0.7
+Bipolar Disorder,fatigue,0.6
+Bipolar Disorder,concentration_problems,0.6
+Bipolar Disorder,changes_in_appetite,0.5
+Bipolar Disorder,thoughts_of_death,0.6
+Schizophrenia,hallucinations,0.9
+Schizophrenia,delusions,0.9
+Schizophrenia,disorganized_thinking,0.8
+Schizophrenia,lack_of_motivation,0.7
+Schizophrenia,reduced_emotional_expression,0.7
+Schizophrenia,social_withdrawal,0.7
+Schizophrenia,neglect_of_hygiene,0.6
+Schizophrenia,disorganized_speech,0.7
+Schizophrenia,catatonic_behavior,0.6
+Schizophrenia,paranoia,0.8
+Schizophrenia,impaired_cognition,0.6
+Eating Disorders,extreme_food_restriction,0.9
+Eating Disorders,binge_eating,0.8
+Eating Disorders,purging_behaviors,0.8
+Eating Disorders,distorted_body_image,0.9
+Eating Disorders,excessive_exercise,0.7
+Eating Disorders,weight_fluctuations,0.7
+Eating Disorders,irregular_menstruation,0.6
+Eating Disorders,dental_problems,0.5
+Eating Disorders,dry_skin,0.4
+Eating Disorders,brittle_nails,0.4
+Eating Disorders,fatigue,0.5
+Eating Disorders,social_isolation,0.6
+Eating Disorders,anxiety_around_food,0.8
+Gout,severe_joint_pain,0.9
+Gout,lingering_discomfort,0.7
+Gout,inflammation_and_redness,0.8
+Gout,limited_range_of_motion,0.7
+Gout,affects_big_toe,0.8
+Gout,affects_ankles,0.7
+Gout,affects_knees,0.6
+Gout,affects_wrists,0.5
+Gout,affects_fingers,0.5
+Gout,fever,0.4
+Gout,fatigue,0.3
+Lyme Disease,bull's_eye_rash,0.9
+Lyme Disease,fever,0.7
+Lyme Disease,chills,0.6
+Lyme Disease,fatigue,0.7
+Lyme Disease,body_aches,0.7
+Lyme Disease,headache,0.6
+Lyme Disease,neck_stiffness,0.6
+Lyme Disease,swollen_lymph_nodes,0.5
+Lyme Disease,joint_pain,0.7
+Lyme Disease,irregular_heartbeat,0.4
+Lyme Disease,dizziness,0.4
+Lyme Disease,shortness_of_breath,0.3
+Lyme Disease,nerve_pain,0.5
+Lyme Disease,facial_paralysis,0.5
+Fibromyalgia,widespread_pain,0.9
+Fibromyalgia,fatigue,0.8
+Fibromyalgia,cognitive_difficulties,0.7
+Fibromyalgia,sleep_problems,0.8
+Fibromyalgia,headaches,0.6
+Fibromyalgia,depression,0.6
+Fibromyalgia,anxiety,0.5
+Fibromyalgia,sensitivity_to_temperature,0.6
+Fibromyalgia,irritable_bowel_syndrome,0.5
+Fibromyalgia,painful_menstruation,0.4
+Fibromyalgia,tingling_or_numbness,0.5
+Fibromyalgia,restless_leg_syndrome,0.4
+Chronic Fatigue Syndrome,extreme_fatigue,0.9
+Chronic Fatigue Syndrome,post_exertional_malaise,0.9
+Chronic Fatigue Syndrome,sleep_problems,0.8
+Chronic Fatigue Syndrome,difficulty_concentrating,0.7
+Chronic Fatigue Syndrome,muscle_pain,0.7
+Chronic Fatigue Syndrome,joint_pain,0.6
+Chronic Fatigue Syndrome,headaches,0.6
+Chronic Fatigue Syndrome,tender_lymph_nodes,0.5
+Chronic Fatigue Syndrome,sore_throat,0.5
+Chronic Fatigue Syndrome,cognitive_difficulties,0.7
+Chronic Fatigue Syndrome,dizziness,0.5
+Psoriasis,red_patches_of_skin,0.9
+Psoriasis,silvery_scales,0.8
+Psoriasis,dry_cracked_skin,0.7
+Psoriasis,itching,0.7
+Psoriasis,burning_sensation,0.6
+Psoriasis,thick_nails,0.5
+Psoriasis,swollen_and_stiff_joints,0.5
+Psoriasis,patches_on_scalp,0.7
+Psoriasis,patches_on_elbows,0.7
+Psoriasis,patches_on_knees,0.7
+Psoriasis,small_scaling_spots,0.6
+Eczema,itchy_skin,0.9
+Eczema,red_patches,0.8
+Eczema,dry_skin,0.8
+Eczema,thickened_skin,0.7
+Eczema,cracked_skin,0.7
+Eczema,sensitive_skin,0.6
+Eczema,raw_skin_from_scratching,0.6
+Eczema,skin_infections,0.5
+Eczema,scaling_skin,0.6
+Eczema,small_raised_bumps,0.6
+Eczema,oozing_and_crusting,0.5
+Varicose Veins,twisted_veins,0.9
+Varicose Veins,blue_or_dark_purple_veins,0.8
+Varicose Veins,achy_or_heavy_feeling_in_legs,0.7
+Varicose Veins,burning_or_throbbing_in_legs,0.7
+Varicose Veins,muscle_cramps,0.6
+Varicose Veins,swelling_in_lower_legs,0.6
+Varicose Veins,worsened_pain_after_sitting_or_standing,0.7
+Varicose Veins,itching_around_veins,0.5
+Varicose Veins,skin_discoloration,0.5
+Varicose Veins,ulcers_near_ankles,0.4
+Hemorrhoids,bleeding_during_bowel_movements,0.8
+Hemorrhoids,itching_in_anal_region,0.8
+Hemorrhoids,pain_or_discomfort,0.8
+Hemorrhoids,swelling_around_anus,0.7
+Hemorrhoids,lump_near_anus,0.7
+Hemorrhoids,leakage_of_feces,0.6
+Hemorrhoids,pain_while_sitting,0.7
+Hemorrhoids,sensitive_lump,0.7
+Hemorrhoids,irritation_and_redness,0.6
+Hemorrhoids,painful_bowel_movements,0.7
+Bell's Palsy,sudden_weakness_in_facial_muscles,0.9
+Bell's Palsy,facial_drooping,0.9
+Bell's Palsy,difficulty_making_facial_expressions,0.8
+Bell's Palsy,drooling,0.7
+Bell's Palsy,pain_around_jaw,0.6
+Bell's Palsy,headache,0.5
+Bell's Palsy,decreased_ability_to_taste,0.6
+Bell's Palsy,changes_in_tear_production,0.6
+Bell's Palsy,sensitivity_to_sound,0.5
+Bell's Palsy,difficulty_eating_or_drinking,0.7
+Vertigo,spinning_sensation,0.9
+Vertigo,loss_of_balance,0.8
+Vertigo,nausea,0.7
+Vertigo,vomiting,0.6
